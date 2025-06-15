@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Credit Risk Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="score_2.css">
+</head>
+<body class="light">
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+        🌙
+    </button>
+
+    <div class="card">
+        
+        <header class="text-center mb-6">
+            <h1 class="text-2xl md:text-3xl font-bold">AI Credit Risk Calculator</h1>
+            <p class="opacity-70 mt-2">Based on the Statlog (German Credit) Dataset.</p>
+        </header>
+
+        <main>
+            <!-- Live Prediction Tool -->
+            <section id="prediction-tool">
+                <form id="prediction-form" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                       <div>
+                            <label for="duration" class="block text-sm font-medium mb-1">Duration (months)</label>
+                            <input type="number" id="duration" value="24" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="age" class="block text-sm font-medium mb-1">Age</label>
+                            <input type="number" id="age" value="35" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="amount" class="block text-sm font-medium mb-1">Credit Amount</label>
+                        <input type="number" id="amount" value="2500" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+                    </div>
+                    <div>
+                        <label for="installment_rate" class="block text-sm font-medium mb-1">Installment Rate (1-4)</label>
+                        <input type="number" id="installment_rate" min="1" max="4" value="4" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+                    </div>
+                     <div>
+                        <label for="num_credits" class="block text-sm font-medium mb-1">Existing Credits (1-4)</label>
+                        <input type="number" id="num_credits" min="1" max="4" value="1" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full bg-blue-600 text-white font-bold py-2.5 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all text-base">
+                        Calculate Risk
+                    </button>
+                </form>
+                <div id="live-result" class="mt-8 text-center opacity-0 transition-opacity duration-500">
+                    <h3 class="text-base font-semibold opacity-70 uppercase tracking-wider">Predicted Result</h3>
+                    <p id="live-risk-score" class="text-6xl font-bold mt-2">0</p>
+                    <p id="live-risk-level" class="text-2xl font-semibold mt-1">N/A</p>
+                    <p id="probability-display" class="text-sm opacity-70 mt-2"></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="score_2.js">
+        
+    </script>
+
+</body>
+</html>
